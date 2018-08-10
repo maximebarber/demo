@@ -1,17 +1,14 @@
-{% extends 'base.html.twig' %} {% block body %}
+{% extends 'base.html.twig' %} 
 
-<article>
-    <h2>Titre de l'artile</h2>
-    <div class="metadata">Ecrit le 10/05/2018 à 19:00 dans la catégorie Politique</div>
-        <div class="content">
-        <img src="http://placehold.it/350x150" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa voluptatem, a eveniet consequatur et?</p>
-        <p>Ipsa vel dolorum impedit accusamus beatae eos, ullam optio iusto ut reprehenderit neque harum quia.</p>
-        <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a>
-    </div>
-    <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta distinctio vel consectetur molestiae ducimus eveniet ipsa, qui molestias temporibus corporis error, rerum ratione! Atque odit recusandae inventore iure qui vitae tenetur esse doloremque sapiente quam laudantium at nobis molestiae facilis, possimus excepturi ut distinctio quae hic consectetur? Eaque, molestias nulla.</p>
-    <p>Aliquam ipsum, nulla quaerat nisi provident voluptatem autem ipsa ex, itaque asperiores quae laborum pariatur aliquid suscipit quasi saepe reiciendis? Adipisci necessitatibus consectetur dolorum soluta reiciendis voluptatibus similique totam, sunt ducimus fugit quos eum architecto corporis quis temporibus deleniti quae inventore recusandae. Ab asperiores numquam sapiente porro, corporis obcaecati omnis.</p>
-</article>
+{% block body %}
+
+    <article>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie Politique</div>
+            <div class="content">
+            <img src="{{ article.image }}" alt="">
+            {{ article.content | raw }}
+        </div>
+    </article>
 
 {% endblock %}
